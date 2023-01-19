@@ -2,9 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    message = "Rango says hey there partner! " + '<a href="/rango/about">About</a>'
-    return HttpResponse(message)
-    
+    context_dict = {'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
+    return render(request, 'rango/index.html', context=context_dict)
+
 def about(request):
-    message = "Rango says here is the about page. " + '<a href="/rango/">Index</a>'
-    return HttpResponse(message)
+    context_dict = {'message': 'This tutorial has been put together by Cian'}
+    return render(request, 'rango/about.html', context=context_dict)
